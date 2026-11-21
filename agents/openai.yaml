@@ -1,0 +1,4 @@
+interface:
+  display_name: "Playwright → Figma"
+  short_description: "Публикация Playwright-сценариев в Figma Design"
+  default_prompt: "Используй $playwright-to-figma: прогони сценарии текущей ветки и обнови только изменившиеся карты в Figma."
