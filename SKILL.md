@@ -31,7 +31,7 @@ python3 <skill>/scripts/publication.py inspect <recording.json> \
 
 It validates the manifest, local images and trigger bounds, then compares exact PNG bytes plus visible state/transition metadata with the last publication fingerprint. Commit SHA, retry, output directory and execution timing do not invalidate a map. PNG metadata or dynamic content can still cause false changes: prefer stable fixture data and explicit screenshot masking in tests. Do not describe equality as proof of complete behavioral equivalence.
 
-If unchanged, verify the recorded page and section still exist in the target Figma file, then leave the document untouched. If missing, regenerate. A changed layout must use a changed `--layout` key, even when images are identical. Read [references/publication.md](references/publication.md) before first publication, replacement, or recovery.
+If unchanged, verify the recorded page and section still exist in the target Figma file, then leave the document untouched. If missing, regenerate. A changed layout must use a changed `--layout` key, even when images are identical. Read [references/publication.md](references/publication.md) before first publication, in-place refresh, or recovery.
 
 ## Publish through connected Figma tools
 
@@ -41,7 +41,13 @@ Figma Design deliverable: one frame per screenshot, an image-filled rectangle at
 
 Use a user-supplied or observed connector template. Cloning a pasted FigJam connector and changing endpoints was demonstrated through one connected Figma tool; standard public Plugin API support and cross-file transfer are not guaranteed. Probe capability on isolated test copies, preserving the original template. If the target file has no usable template, ask the user to paste one there. Do not promise clipboard replay.
 
-On refresh, create a temporary replacement, upload assets and verify image/trigger/connector counts, label text and endpoint IDs. Preserve the old section until replacement is verified. Replacement of generated section contents is allowed only when the user/project has authorized it; manual edits inside are lost. Preserve the section's location, account for changed dimensions without overlapping unrelated sections, and remove only the precisely identified old generated section. On failure leave the original and record no new baseline. Do not delete scenarios merely because a filtered run omitted them.
+On refresh, preserve the existing section and the IDs of existing screen frames, image layers, trigger shapes and connectors. Update image fills, geometry, connector endpoints and labels in place; resize the same section to contain the result. Comment pins can refer to descendant node IDs, so keeping only the outer section while recreating its children is insufficient. Never delete/recreate objects as a shortcut or recreate comment threads under another author.
+
+Match scenarios and states by stable semantic IDs, not order, coordinates or mutable display labels. Retain an explicit ID-to-node mapping in local publication state or verify an unambiguous existing mapping. The bundled prototype uses ordinal state IDs; it does not establish identity across insertion/removal of states. For ambiguous structural changes, stop the affected update and obtain an explicit mapping or migrate the exporter to semantic IDs before changing existing objects.
+
+Create objects only for genuinely new states or transitions. Keep removed states/transitions and their anchor objects visible in a clearly marked Archive area within the same section; retain IDs and discussion context. Do not delete, resolve or move comments. Require a separate explicit instruction for removing archived objects. Preserve unrelated content and do not delete scenarios omitted by a filtered run.
+
+Preflight the export and load assets before applying an in-place update. Save affected node IDs and prior image hashes/properties for recovery. Check images, labels, endpoint IDs and stable node identities after updating. On partial failure inspect and recover the known objects where possible, report any partial update, and leave the published baseline unchanged. Do not claim transactional replacement: the available tools may apply mutations incrementally. Manual diagram edits to generated properties can be overwritten; comment threads and their anchored objects must be preserved.
 
 Verify an attachment by moving/restoring a test frame when connector behavior is new or uncertain; otherwise reuse established evidence. Render the completed section for visual QA. After success record the returned fingerprint and actual object IDs:
 
