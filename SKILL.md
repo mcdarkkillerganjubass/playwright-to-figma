@@ -29,9 +29,9 @@ python3 <skill>/scripts/publication.py inspect <recording.json> \
   --scope <layout-group-or-branch> --scenario-id <stable-id>
 ```
 
-It validates the manifest, local images and trigger bounds, then compares exact PNG bytes plus visible state/transition metadata with the last publication fingerprint. Commit SHA, retry, output directory and execution timing do not invalidate a map. PNG metadata or dynamic content can still cause false changes: prefer stable fixture data and explicit screenshot masking in tests. Do not describe equality as proof of complete behavioral equivalence.
+It validates the manifest, image dimensions and trigger bounds. Exact fingerprints provide a fast equality check. When bytes differ but state/transition metadata is identical, compare decoded pixels to the last published baseline: at most 10 differing pixels across the whole scenario, RGB channel differences at most 1/255, and identical alpha. Larger differences, dimensions, labels, states, transitions and trigger geometry require an update. PNG compression/metadata alone does not count as a visual change. Commit SHA, retry, output directory and execution timing are excluded. Stabilize dates and fixture data in tests. Do not describe equality as proof of complete behavioral equivalence.
 
-If unchanged, verify the recorded page and section still exist in the target Figma file, then leave the document untouched. If missing, regenerate. A changed layout must use a changed `--layout` key, even when images are identical. Read [references/publication.md](references/publication.md) before first publication, in-place refresh, or recovery.
+If unchanged, verify the recorded page and section still exist in the target Figma file, then leave the document and publication baseline untouched. Noise-only inspections must not advance the pixel baseline, preventing cumulative drift. If missing, regenerate. A changed layout must use a changed `--layout` key, even when images are identical. Read [references/publication.md](references/publication.md) before first publication, in-place refresh, or recovery.
 
 ## Publish through connected Figma tools
 
@@ -58,6 +58,6 @@ python3 <skill>/scripts/publication.py record <recording.json> \
   --fingerprint <verified-fingerprint> --page-id <page-id> --section-id <section-id>
 ```
 
-Local state defaults to `~/.codex/skill-data/playwright-to-figma/`; use `--state-dir` for another agent/environment. It stores publication identity, fingerprint and node IDs, not destination rules or credentials. The same storage must be used across runs; lost state requires explicit adoption of an existing section or creating a new section, never guessing what to delete.
+Local state defaults to `~/.codex/skill-data/playwright-to-figma/`; use `--state-dir` for another agent/environment. It stores publication identity, fingerprints, node IDs and compressed published pixel baselines, not destination rules or credentials. Legacy records use exact comparison until enriched from their verified, exactly matching published export; never adopt a new screenshot as the old baseline merely to suppress an update. The same storage must be used across runs; lost state requires explicit adoption of an existing section or creating a new section, never guessing what to delete.
 
 Report tests passed/failed, updated/unchanged/not-refreshed scenarios and Figma links. State capability limits, especially where publication still needs the agent rather than one shell command.
