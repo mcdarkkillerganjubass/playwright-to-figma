@@ -60,12 +60,13 @@ export class FlowExport {
         state.scroll = await this.page.evaluate(() => ({x: scrollX, y: scrollY}));
     }
 
-    async capture(label: string): Promise<void> {
+    async capture(label: string, id = 'state-1'): Promise<void> {
         if (this.manifest.states.length || this.manifest.status !== 'recording') {
             throw new Error('Use capture once, then transition for subsequent states');
         }
         try {
-            const state = {id: 'state-1', label, image: 'state-1.png', url: '', scroll: {x: 0, y: 0}};
+            if (!/^[a-z0-9-]+$/.test(id)) throw new Error('Invalid state ID');
+            const state = {id, label, image: `${id}.png`, url: '', scroll: {x: 0, y: 0}};
             await this.screenshot(state);
             this.manifest.states.push(state);
             await this.persist();
@@ -78,6 +79,8 @@ export class FlowExport {
 
     async transition(options: {
         trigger?: Locator;
+        destinationId?: string;
+        interaction?: 'click' | 'hover';
         label: string;
         destination: string;
         action: () => Promise<unknown>;
@@ -89,8 +92,7 @@ export class FlowExport {
             let bounds: Bounds | null = null;
             if (options.trigger) {
                 await options.trigger.scrollIntoViewIfNeeded();
-                await options.trigger.click({trial: true});
-                await this.page.mouse.move(0, 0);
+                if (options.interaction !== 'hover') await options.trigger.click({trial: true});
                 bounds = await options.trigger.boundingBox();
                 if (!bounds) throw new Error('Trigger has no visible bounding box');
                 const {width, height} = this.manifest.viewport;
@@ -99,13 +101,12 @@ export class FlowExport {
                     throw new Error('Trigger must be fully inside the captured viewport');
                 }
             }
-            // shortcut: linear flows only; branch exports need separate source captures.
-            await this.screenshot(source);
-            await this.persist();
+            // Source pixels are immutable: later input or hover must not overwrite an earlier checkpoint.
             if (options.trigger) expect(await options.trigger.boundingBox()).toEqual(bounds);
             await options.action();
             await options.ready();
-            const id = `state-${this.manifest.states.length + 1}`;
+            const id = options.destinationId ?? `state-${this.manifest.states.length + 1}`;
+            if (!/^[a-z0-9-]+$/.test(id) || this.manifest.states.some(state => state.id === id)) throw new Error('Invalid or duplicate state ID');
             const destination = {id, label: options.destination, image: `${id}.png`, url: '', scroll: {x: 0, y: 0}};
             await this.screenshot(destination);
             this.manifest.states.push(destination);
