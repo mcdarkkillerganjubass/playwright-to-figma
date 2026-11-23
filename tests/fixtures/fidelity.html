@@ -1,0 +1,19 @@
+<!doctype html><meta charset="utf-8">
+<style>
+*{box-sizing:border-box}body{margin:16px;font:14px/20px Arial;background:#fff;color:#202020}
+section{margin-bottom:12px;width:580px}h2{margin:0 0 8px;font-size:16px;line-height:24px}
+#form{display:flex;gap:12px}label{display:block;font-size:11px;line-height:16px}
+input{height:44px;width:180px;padding:14px 12px 0;border:0;background:#eee;font:13px/16px Arial}
+button{display:flex;gap:8px;align-items:center;padding:8px 12px;font:600 14px/20px Arial;background:transparent;border:0;border-radius:8px;box-shadow:inset 0 0 0 1px #888}
+button::before{content:'→';display:block;width:20px;height:20px}
+table{border-collapse:collapse;width:100%}td{border:1px solid #ccc;padding:4px 8px}
+#scroll{height:68px;overflow:auto;border:1px solid #aaa}#scroll p{margin:0 8px;line-height:24px}
+#overlay{position:fixed;left:320px;top:18px;width:260px;padding:16px;background:#fff;border:1px solid #777;border-radius:8px;z-index:2}
+#unsupported{filter:blur(1px);transform:rotate(5deg);background:linear-gradient(red,blue);height:24px;width:100px}
+</style>
+<section id="form" data-figma-region="form"><div id="field"><label id="field-label">Padded value</label><input id="input" value="42px"></div><button id="continue">Continue</button></section>
+<section id="table-region" data-figma-region="table"><h2 id="table-title">Table</h2><table id="table"><tr id="row-one"><td id="cell-a">First</td><td id="cell-b">Value</td></tr><tr id="row-two"><td id="cell-c">Second</td><td id="cell-d">A longer value</td></tr></table></section>
+<section id="text-region" data-figma-region="text"><p id="wrapped" style="width:240px;font:italic 500 15px/26px Arial;letter-spacing:.5px;text-decoration:underline">Long text must preserve its measured line fragments and CSS typography.</p></section>
+<section id="scroll-region" data-figma-region="scroll"><div id="scroll"><p id="line-one">Top</p><p id="line-two">Middle</p><p id="line-three">Bottom</p><p id="line-four">Last</p></div></section>
+<aside id="overlay" data-figma-region="overlay"><h2 id="overlay-title">Overlay</h2><span id="overlay-label">Fixed position</span><svg id="svg" width="16" height="16" viewBox="0 0 16 16"><path d="M2 8h12M8 2v12" stroke="currentColor" stroke-width="2"/></svg></aside>
+<div id="unsupported">Unsupported</div>

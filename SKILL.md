@@ -7,6 +7,8 @@ description: Run explicitly marked Playwright scenarios and publish or refresh s
 
 Turn authored test checkpoints into editable screenshot flow maps. Use the current project's publication instructions as the destination/layout authority. This skill contains no project-specific Figma links or scenario logic.
 
+For explicitly requested **editable screen contents**, read [references/native-design.md](references/native-design.md) before capture or publication. It defines the experimental native-layer workflow through the connected Figma integration; screenshot flow maps remain the default.
+
 ## Resolve the task
 
 Read the project's agent instructions and any publication document they explicitly reference. Resolve the Figma Design file, layout policy, selected tests and test command. For an explicitly supplied external instructions file, read that file instead of inventing a second configuration. Ask only for missing destination or material layout choices. Never infer a destination from an unrelated prior chat.
@@ -45,7 +47,7 @@ Use a user-supplied or observed connector template. Cloning a pasted FigJam conn
 
 On refresh, preserve the existing section and the IDs of existing screen frames, image layers, trigger shapes and connectors. Update image fills, geometry, connector endpoints and labels in place. As the final mutation, resize the same section to fit the complete published content plus a consistent padding margin, and shrink unused width/height when safe. Preserve the section's top-left position unless the project layout explicitly says otherwise. Re-check that no child, trigger, connector label or comment anchor lies outside the resized bounds. Comment pins can refer to descendant node IDs, so keeping only the outer section while recreating its children is insufficient. Never delete/recreate objects as a shortcut or recreate comment threads under another author.
 
-Match scenarios and states by stable semantic IDs, not order, coordinates or mutable display labels. Retain an explicit ID-to-node mapping in local publication state or verify an unambiguous existing mapping. The bundled prototype uses ordinal state IDs; it does not establish identity across insertion/removal of states. For ambiguous structural changes, stop the affected update and obtain an explicit mapping or migrate the exporter to semantic IDs before changing existing objects.
+Match scenarios and states by stable semantic IDs, not order, coordinates or mutable display labels. Retain an explicit ID-to-node mapping in local publication state or verify an unambiguous existing mapping. The exporter accepts `capture(label, id)` and `transition({destinationId})`, but defaults to ordinal IDs; require explicit semantic IDs for structural updates. For ambiguous structural changes, stop the affected update and obtain an explicit mapping before changing existing objects.
 
 Create objects only for genuinely new states or transitions. Delete generated states, transitions and trigger anchors absent from the refreshed scenario; do not archive them. Comments attached to deleted nodes may be lost. Preserve IDs and comments on retained objects. Fit the section after structural changes. Preserve unrelated content and scenarios omitted by a filtered run.
 

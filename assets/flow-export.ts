@@ -3,12 +3,14 @@ import {randomUUID} from 'node:crypto';
 import {mkdir, rename, writeFile} from 'node:fs/promises';
 import {join} from 'node:path';
 import {expect, type Locator, type Page, type TestInfo} from '@playwright/test';
+import {capturePageDesign} from './page-design';
 
 type Bounds = {x: number; y: number; width: number; height: number};
 type State = {
     id: string;
     label: string;
     image: string;
+    design?: string;
     url: string;
     scroll: {x: number; y: number};
 };
@@ -17,12 +19,13 @@ export class FlowExport {
     readonly directory: string;
     readonly manifest;
 
-    constructor(private readonly page: Page, private readonly testInfo: TestInfo, scenario: string) {
+    constructor(private readonly page: Page, private readonly testInfo: TestInfo, scenario: string,
+        private readonly options: {design?: boolean} = {}) {
         const viewport = page.viewportSize();
         if (!viewport) throw new Error('Flow export requires a fixed viewport');
         this.directory = testInfo.outputPath('flow', randomUUID());
         this.manifest = {
-            version: 1,
+            version: options.design ? 2 : 1,
             scenario,
             viewport,
             provenance: {
@@ -47,10 +50,23 @@ export class FlowExport {
     private async screenshot(state: State): Promise<void> {
         expect(this.page.viewportSize()).toEqual(this.manifest.viewport);
         await this.page.evaluate(() => document.fonts.ready.then(() => undefined));
+        if (this.options.design) {
+            await this.page.evaluate(() => {
+                for (const animation of document.getAnimations()) {
+                    if (animation.effect?.getTiming().iterations === Infinity) { animation.currentTime = 0; animation.pause(); }
+                    else animation.finish();
+                }
+            });
+        }
         const temporary = join(this.directory, state.image + '.tmp');
         await mkdir(this.directory, {recursive: true});
         await this.page.screenshot({path: temporary, type: 'png', fullPage: false, scale: 'css', animations: 'disabled'});
         await rename(temporary, join(this.directory, state.image));
+        if (this.options.design) {
+            const design = await capturePageDesign(this.page);
+            state.design = `${state.id}.design.json`;
+            await writeFile(join(this.directory, state.design), JSON.stringify(design, null, 2) + '\n');
+        }
         const url = new URL(this.page.url());
         url.username = '';
         url.password = '';

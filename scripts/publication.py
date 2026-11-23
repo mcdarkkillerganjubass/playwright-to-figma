@@ -23,8 +23,8 @@ MAX_RGB_DELTA = 1
 def load_export(manifest_path, layout):
     path = Path(manifest_path).resolve(strict=True)
     data = json.loads(path.read_text())
-    if data.get('version') != 1 or data.get('status') != 'passed':
-        raise ValueError('Only a passed version-1 export can be published')
+    if data.get('version') not in (1, 2) or data.get('status') != 'passed':
+        raise ValueError('Only a passed version-1 or version-2 export can be published')
     viewport = data['viewport']
     width, height = viewport['width'], viewport['height']
     if any(type(v) is not int or v <= 0 for v in (width, height)):
@@ -46,6 +46,36 @@ def load_export(manifest_path, layout):
         images[sid] = png
         states.append({'id': sid, 'label': state['label'], 'route': urlsplit(state['url']).path,
                        'scroll': state['scroll'], 'png': hashlib.sha256(png).hexdigest()})
+        if data['version'] == 2:
+            design_path = (path.parent / state['design']).resolve(strict=True)
+            if not design_path.is_relative_to(path.parent):
+                raise ValueError('Design must remain inside the export directory')
+            design = json.loads(design_path.read_text())
+            if (design.get('version'),design.get('converter')) not in ((1,'native-v1'),(2,'native-v2')) or design.get('viewport') != viewport:
+                raise ValueError('Incompatible design capture')
+            layers = design.get('layers')
+            if not isinstance(layers, list) or not layers:
+                raise ValueError('Design layers must be nonempty')
+            parents = {}
+            for layer in layers:
+                key, parent = layer['key'], layer['parent']
+                if not isinstance(key, str) or not key or key in parents or layer['kind'] not in ('frame', 'text', 'svg'):
+                    raise ValueError('Invalid design key or kind')
+                if parent is None:
+                    if parents or key != '$viewport' or layer['kind'] != 'frame':
+                        raise ValueError('Expected one viewport root')
+                elif parents.get(parent) != 'frame':
+                    raise ValueError('Invalid design parent')
+                for coordinate in ('x', 'y', 'width', 'height', 'opacity'):
+                    value = layer[coordinate]
+                    if type(value) not in (int, float) or not math.isfinite(value):
+                        raise ValueError('Invalid design geometry')
+                if layer['width'] <= 0 or layer['height'] <= 0 or not 0 <= layer['opacity'] <= 1:
+                    raise ValueError('Invalid design size or opacity')
+                parents[key] = layer['kind']
+            if (layers[0]['width'], layers[0]['height']) != (width, height):
+                raise ValueError('Design root dimensions must match viewport')
+            states[-1]['design'] = digest(design)
     if not states:
         raise ValueError('Export must contain states')
     edges = []
@@ -121,6 +151,35 @@ def execute(args):
     if args.command == 'record':
         if not args.page_id or not args.section_id or args.fingerprint != value:
             raise ValueError('Recording requires verified page/section IDs and the current fingerprint')
+        source = json.loads(Path(args.manifest).read_text())
+        node_map = None
+        if source['version'] == 2:
+            if not getattr(args, 'node_map', None):
+                raise ValueError('Native publication requires a verified per-state --node-map')
+            node_map = json.loads(Path(args.node_map).read_text())
+            if set(node_map) != {s['id'] for s in source['states']}:
+                raise ValueError('Node map must cover exactly the exported states')
+            seen = set()
+            render_reports = json.loads(Path(args.render_reports).read_text()) if getattr(args,'render_reports',None) else {}
+            for state in source['states']:
+                capture = json.loads((Path(args.manifest).resolve().parent / state['design']).read_text())
+                if capture['version'] == 2:
+                    if any(d.get('severity') == 'unsupported' for d in capture.get('diagnostics',[])):
+                        raise ValueError('Unsupported rendering features prevent verified publication')
+                    report = render_reports.get(state['id'],{})
+                    if report.get('passed') is not True or report.get('referenceSHA256') != hashlib.sha256(images[state['id']]).hexdigest() or report.get('dimensions') != source['viewport'] or not report.get('regions'):
+                        raise ValueError('Native-v2 publication requires a passing, current per-state --render-reports file')
+                mapping = node_map[state['id']]
+                if not isinstance(mapping.get('containerId'), str) or not mapping['containerId'] or mapping.get('converter') != capture['converter']:
+                    raise ValueError('Invalid native container mapping')
+                if set(mapping['layers']) != {n['key'] for n in capture['layers']}:
+                    raise ValueError('Node map must cover exactly the captured layers')
+                for layer in capture['layers']:
+                    entry = mapping['layers'][layer['key']]
+                    nid = entry['id']
+                    if not isinstance(nid, str) or not nid or nid in seen or entry['kind'] != layer['kind'] or entry['parent'] != layer['parent']:
+                        raise ValueError('Invalid or duplicate native layer mapping')
+                    seen.add(nid)
         directory.mkdir(parents=True, exist_ok=True)
         pixels = directory / 'pixels'
         pixels.mkdir(exist_ok=True)
@@ -142,6 +201,8 @@ def execute(args):
                     temporary.unlink(missing_ok=True)
         record = {**identity, 'fingerprint': value, 'metadataFingerprint': metadata,
                   'pixelBaselines': baselines, 'pageId': args.page_id, 'sectionId': args.section_id}
+        if node_map is not None:
+            record['nodeMap'] = node_map
         with tempfile.NamedTemporaryFile(mode='w', dir=directory, delete=False, encoding='utf-8') as stream:
             temporary = Path(stream.name)
             json.dump(record, stream, ensure_ascii=False, indent=2)
@@ -167,6 +228,8 @@ def main():
     parser.add_argument('--fingerprint')
     parser.add_argument('--page-id')
     parser.add_argument('--section-id')
+    parser.add_argument('--node-map', help='Verified renderer results keyed by state ID; required for version 2')
+    parser.add_argument('--render-reports',help='compare_render.py reports keyed by state ID; required for native-v2')
     args = parser.parse_args()
     try:
         print(json.dumps(execute(args), ensure_ascii=False, indent=2))

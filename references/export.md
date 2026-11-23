@@ -2,6 +2,8 @@
 
 The prototype helper uses TypeScript, Node.js and the host repository's `@playwright/test`; it adds no runtime dependency. It requires a Git checkout and fixed viewport. Copy/adapt the helper into the host test support directory when authorized, so tests do not depend on one person's absolute skill installation path. Future changes to the bundled helper do not automatically update copied helpers; migrate deliberately when the export contract changes.
 
+Copy `page-design.ts` and `design-capture.ts` alongside `flow-export.ts` because the helper imports them. Default output remains version 1. An explicitly requested native mockup can opt into `{design: true}` as the fourth constructor argument; see [native-design.md](native-design.md) for version 2 and import/refresh rules.
+
 ```ts
 const flow = new FlowExport(page, testInfo, 'Readable scenario title');
 await flow.capture('Draft');
