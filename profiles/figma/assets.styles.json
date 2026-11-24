@@ -1,0 +1,30 @@
+{
+  "fileKey": "R1oI4T6X9CHxl2x55MDypT",
+  "library": "TUI Assets",
+  "styles": [
+    {
+      "id": "S:11dcebbcfe4c91cb45849084c3cf0cc2b4279681,",
+      "name": "t-shield-on-yellow",
+      "type": "PAINT",
+      "key": "11dcebbcfe4c91cb45849084c3cf0cc2b4279681"
+    },
+    {
+      "id": "S:fe1e2e5eb9e092f4324cd8a00ecd4e8f76075443,",
+      "name": "t-shield-on-invest",
+      "type": "PAINT",
+      "key": "fe1e2e5eb9e092f4324cd8a00ecd4e8f76075443"
+    },
+    {
+      "id": "S:a3e81494300c756f1916613acfe8ffc7a8b231df,",
+      "name": "t-shield-on-mobile",
+      "type": "PAINT",
+      "key": "a3e81494300c756f1916613acfe8ffc7a8b231df"
+    },
+    {
+      "id": "S:2971a9bccd12e3b3666aea0b3f62a424cf97d5c4,",
+      "name": "t-shield-on-business",
+      "type": "PAINT",
+      "key": "2971a9bccd12e3b3666aea0b3f62a424cf97d5c4"
+    }
+  ]
+}

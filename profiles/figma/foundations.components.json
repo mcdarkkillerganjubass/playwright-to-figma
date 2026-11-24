@@ -1,0 +1,16 @@
+{
+  "fileKey": "gGt4PaQxQhX7ozPVImsgL5",
+  "library": "TUI Foundations",
+  "components": [
+    {
+      "id": "16773:11733",
+      "name": ".Color Swatch",
+      "type": "COMPONENT",
+      "key": "4cbc1dd50f5588656c352b5525c5715ac18d2208",
+      "parentType": "PAGE",
+      "parentId": "16773:11732",
+      "pageId": "16773:11732",
+      "pageName": "Variable Color Swatches"
+    }
+  ]
+}

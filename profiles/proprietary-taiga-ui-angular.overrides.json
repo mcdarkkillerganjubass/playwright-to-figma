@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "id": "proprietary-taiga-ui-angular",
+  "description": "Verified starter mapping for Angular proprietary Taiga UI. No Nitro-local components. Extend only with inspected asset keys and property names.",
+  "components": {
+    "tuiButton": {
+      "type": "component_set",
+      "key": "becb0f7796759046145bf5f7199abf80d3ba4ff0",
+      "library": "TUI Desktop",
+      "properties": {
+        "size": {"name": "size", "values": {"s": "small", "xs": "extraSmall"}},
+        "appearance": {"name": "appearance", "values": {"primary": "primary", "secondary-grayscale": "secondary-grayscale", "outline-grayscale": "outline-grayscale", "flat-grayscale": "flat-grayscale"}}
+      }
+    }
+  },
+  "icons": {
+    "@tui.pragmatic.small.plus": {"type": "component", "key": "7e1916b8c022d0bf102c7b90deb357439468e1d7", "library": "TUI Assets"},
+    "@tui.pragmatic.small.chevron-down": {"type": "component", "key": "9e7beef9dd7fad15fe9e7feedd71c18bc3e0d840", "library": "TUI Assets"},
+    "@tui.pragmatic.small.settings": {"type": "component", "key": "88e8eabfd6f2162da36de2f95af4dba1f13658d4", "library": "TUI Assets"}
+  },
+  "tokens": {
+    "--tui-text-primary": {"type": "variable", "key": "c5987816b848d51827e1368f05d1d05e7b0ed4d3", "library": "TUI Foundations"},
+    "--tui-text-secondary": {"type": "variable", "key": "1d9c58c03e13b7dd66735dc6bf82ea75c38234d2", "library": "TUI Foundations"},
+    "--tui-text-action": {"type": "variable", "key": "bad78d2a883ae80303cb815e9d7eb7c3ac48f3ba", "library": "TUI Foundations"},
+    "--tui-background-base": {"type": "variable", "key": "1a7832ae46bca46eedf2749ccbe2dda27e313d7a", "library": "TUI Foundations"},
+    "--tui-background-neutral-1-opaque": {"type": "variable", "key": "b92a008ec386050bbcfef1be9cfaf754a02d18c7", "library": "TUI Foundations"},
+    "--tui-border-normal": {"type": "variable", "key": "0cfc5f7af22f7ef1aff10400678e046d071206e4", "library": "TUI Foundations"}
+  },
+  "textStyles": {
+    "--tui-typography-body-m": {"type": "text_style", "key": "a14170cdcdcd9d716632b7be8a8482bbe1ad9ee2", "library": "TUI Desktop"},
+    "--tui-typography-body-m-bold": {"type": "text_style", "key": "ffafd8d0f26e9884722d6dc7dedee260caec1532", "library": "TUI Desktop"},
+    "--tui-typography-body-s": {"type": "text_style", "key": "3c99072a74ba28d7414c9d70de4ff672a3fa738e", "library": "TUI Desktop"},
+    "--tui-typography-ui-s": {"type": "text_style", "key": "18a24959d1e97b7e73a9fd67659f27873fcb5ba2", "library": "TUI Desktop"}
+  }
+}

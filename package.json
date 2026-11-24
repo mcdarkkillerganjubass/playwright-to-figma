@@ -2,7 +2,7 @@
   "name": "playwright-to-figma",
   "private": true,
   "scripts": {
-    "test": "node --test tests/design-renderer.test.mjs && playwright test && python3 -m unittest discover -s scripts -p 'test_*.py'",
+    "test": "node --test tests/*.test.mjs && playwright test && python3 -m unittest discover -s scripts -p 'test_*.py'",
     "typecheck": "tsc --noEmit"
   },
   "devDependencies": {

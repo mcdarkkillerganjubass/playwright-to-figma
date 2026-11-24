@@ -28,6 +28,14 @@ test('rejects duplicate explicit keys instead of inventing identity', async ({pa
     await expect(page.evaluate(captureDesign)).rejects.toThrow('Duplicate design key');
 });
 
+test('captures optional design-system semantics without guessing from CSS', async ({page}) => {
+    await page.setContent(`<button id="save" data-figma-component="tuiButton" data-figma-prop-size="s" data-figma-prop-appearance="primary" data-figma-icon="@tui.pragmatic.small.plus" data-figma-token-color="--tui-text-action">Save</button>`);
+    const design = await page.evaluate(captureDesign);
+    const layer = design.layers.find((n: {key: string}) => n.key === 'element:save');
+    expect(layer?.semantic).toEqual({component: 'tuiButton', props: {size: 's', appearance: 'primary'},
+        icon: '@tui.pragmatic.small.plus', tokens: {color: '--tui-text-action'}});
+});
+
 test('version-1 screenshot exports remain compatible and earlier checkpoints stay immutable', async ({page}, info) => {
     await page.setContent('<button>Save</button>');
     const flow = new FlowExport(page, info, 'legacy');

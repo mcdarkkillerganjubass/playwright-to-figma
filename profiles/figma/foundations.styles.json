@@ -1,0 +1,204 @@
+{
+  "fileKey": "gGt4PaQxQhX7ozPVImsgL5",
+  "library": "TUI Foundations",
+  "styles": [
+    {
+      "id": "S:a44cbeab33942876c9dc2c5c3a3173ba1d8b4893,",
+      "name": "Gradient/Text/Primary Fade",
+      "type": "PAINT",
+      "key": "a44cbeab33942876c9dc2c5c3a3173ba1d8b4893"
+    },
+    {
+      "id": "S:b008b28729bfb4e4ea968ad7a724a814bebcdc3d,",
+      "name": "Gradient/Text/Primary On Dark Fade",
+      "type": "PAINT",
+      "key": "b008b28729bfb4e4ea968ad7a724a814bebcdc3d"
+    },
+    {
+      "id": "S:63f41012a5b201180363b84c94b0dfa20e6c0086,",
+      "name": "Gradient/Text/Secondary Fade",
+      "type": "PAINT",
+      "key": "63f41012a5b201180363b84c94b0dfa20e6c0086"
+    },
+    {
+      "id": "S:e16062ab2fae6d49244afc3b268d494f4964a85b,",
+      "name": "Gradient/Text/Secondary On Dark Fade",
+      "type": "PAINT",
+      "key": "e16062ab2fae6d49244afc3b268d494f4964a85b"
+    },
+    {
+      "id": "S:7a4034d7db7cac4971f155bd301ccd713c76ba00,",
+      "name": "Service/Map Light",
+      "type": "PAINT",
+      "key": "7a4034d7db7cac4971f155bd301ccd713c76ba00"
+    },
+    {
+      "id": "S:813888025ea1f010682620eafa926221ddebdee8,",
+      "name": "Service/Map Dark",
+      "type": "PAINT",
+      "key": "813888025ea1f010682620eafa926221ddebdee8"
+    },
+    {
+      "id": "S:32f5b999faabcd7aa322b67b8af9db019f32308e,",
+      "name": "Gradient/Brand/TS-Premium",
+      "type": "PAINT",
+      "key": "32f5b999faabcd7aa322b67b8af9db019f32308e"
+    },
+    {
+      "id": "S:e4b5d3f49f44eff0206b264f965291b9a6ccc06f,",
+      "name": "Gradient/Brand/All Airlines",
+      "type": "PAINT",
+      "key": "e4b5d3f49f44eff0206b264f965291b9a6ccc06f"
+    },
+    {
+      "id": "S:261f3e710f3b6924d7d1de61e8fa042fbfe30fb9,",
+      "name": "Gradient/Brand/All Airlines Debit",
+      "type": "PAINT",
+      "key": "261f3e710f3b6924d7d1de61e8fa042fbfe30fb9"
+    },
+    {
+      "id": "S:69bd71a05f30d1e43388036fcf130eef1eadabdf,",
+      "name": "Gradient/Brand/All Games",
+      "type": "PAINT",
+      "key": "69bd71a05f30d1e43388036fcf130eef1eadabdf"
+    },
+    {
+      "id": "S:edd5ae5d9f7fac26ab60f0fa78186ae8bfa3640c,",
+      "name": "Gradient/Brand/All Games Debit",
+      "type": "PAINT",
+      "key": "edd5ae5d9f7fac26ab60f0fa78186ae8bfa3640c"
+    },
+    {
+      "id": "S:6252b9e5773c993ef28c32fdbbfc4d031e71ea24,",
+      "name": "Gradient/Brand/Black",
+      "type": "PAINT",
+      "key": "6252b9e5773c993ef28c32fdbbfc4d031e71ea24"
+    },
+    {
+      "id": "S:922743acda1f36f9a299feb0c2b11ba410b49fd9,",
+      "name": "Gradient/Brand/Business",
+      "type": "PAINT",
+      "key": "922743acda1f36f9a299feb0c2b11ba410b49fd9"
+    },
+    {
+      "id": "S:dd290a723668a9ecae5e96493a8c56f7c811fc87,",
+      "name": "Gradient/Brand/Drive Plus",
+      "type": "PAINT",
+      "key": "dd290a723668a9ecae5e96493a8c56f7c811fc87"
+    },
+    {
+      "id": "S:083623449f09b41dce822a49b8b1fc1a0a9388b7,",
+      "name": "Gradient/Brand/Platinum",
+      "type": "PAINT",
+      "key": "083623449f09b41dce822a49b8b1fc1a0a9388b7"
+    },
+    {
+      "id": "S:7411f58974ff02604456331cf66945fcb2cba18d,",
+      "name": "Gradient/Brand/Private",
+      "type": "PAINT",
+      "key": "7411f58974ff02604456331cf66945fcb2cba18d"
+    },
+    {
+      "id": "S:e748300a93a6a873b79a80ce2cec83351a4d1723,",
+      "name": "Gradient/Overlay/Top",
+      "type": "PAINT",
+      "key": "e748300a93a6a873b79a80ce2cec83351a4d1723"
+    },
+    {
+      "id": "S:be33cbc7b6a5225ba5e4e94456c19ae1b1dfcaee,",
+      "name": "Gradient/Overlay/Top Right",
+      "type": "PAINT",
+      "key": "be33cbc7b6a5225ba5e4e94456c19ae1b1dfcaee"
+    },
+    {
+      "id": "S:a3dc4f85d306e2a2d24a7eec4ea1023fab722124,",
+      "name": "Gradient/Overlay/Bottom",
+      "type": "PAINT",
+      "key": "a3dc4f85d306e2a2d24a7eec4ea1023fab722124"
+    },
+    {
+      "id": "S:10c86a4547fcc20a2128ec09e4c469afed4d2742,",
+      "name": "Gradient/Overlay/Bottom Left",
+      "type": "PAINT",
+      "key": "10c86a4547fcc20a2128ec09e4c469afed4d2742"
+    },
+    {
+      "id": "S:0374ad8e050c6641e65a776a073df6a453f2ade7,",
+      "name": "Gradient/Overlay/Both Vertical",
+      "type": "PAINT",
+      "key": "0374ad8e050c6641e65a776a073df6a453f2ade7"
+    },
+    {
+      "id": "S:4a417d37ccd39f9357892e0fee53d04e64fec40a,",
+      "name": "Gradient/Mask/Fade Top",
+      "type": "PAINT",
+      "key": "4a417d37ccd39f9357892e0fee53d04e64fec40a"
+    },
+    {
+      "id": "S:89c75e81a84d6acbf61d7cdd97e6568b9a39031b,",
+      "name": "Gradient/Mask/Fade Right",
+      "type": "PAINT",
+      "key": "89c75e81a84d6acbf61d7cdd97e6568b9a39031b"
+    },
+    {
+      "id": "S:fb96509f8e6f8c4166589aebeb8d60c9fc1d3974,",
+      "name": "Gradient/Mask/Fade Bottom",
+      "type": "PAINT",
+      "key": "fb96509f8e6f8c4166589aebeb8d60c9fc1d3974"
+    },
+    {
+      "id": "S:955dd1e2445131bf0f1c8dceb7c260e14caba141,",
+      "name": "Gradient/Mask/Fade Left",
+      "type": "PAINT",
+      "key": "955dd1e2445131bf0f1c8dceb7c260e14caba141"
+    },
+    {
+      "id": "S:5b5aa5939ac568702d97fa4960f1cc29942d069a,",
+      "name": "Gradient/Text/Action Fade",
+      "type": "PAINT",
+      "key": "5b5aa5939ac568702d97fa4960f1cc29942d069a"
+    },
+    {
+      "id": "S:bef267fa4dd2608b3c7f8bac4889f2877b058aa4,",
+      "name": "Gradient/Brand/Pro",
+      "type": "PAINT",
+      "key": "bef267fa4dd2608b3c7f8bac4889f2877b058aa4"
+    },
+    {
+      "id": "S:1838dd20c3db4cb15e373156fcf389a226d7bab0,",
+      "name": "Shadow/Small",
+      "type": "EFFECT",
+      "key": "1838dd20c3db4cb15e373156fcf389a226d7bab0"
+    },
+    {
+      "id": "S:b7452e9fc17b37cbe4f4924310d39b37d31f0d1a,",
+      "name": "Shadow/Small Hover",
+      "type": "EFFECT",
+      "key": "b7452e9fc17b37cbe4f4924310d39b37d31f0d1a"
+    },
+    {
+      "id": "S:3fee209dc239262a7c06abf5beb67efb95ac82e3,",
+      "name": "Shadow/Medium",
+      "type": "EFFECT",
+      "key": "3fee209dc239262a7c06abf5beb67efb95ac82e3"
+    },
+    {
+      "id": "S:55613f4c4cfccfe501393a8de04a3c3f282da307,",
+      "name": "Shadow/Medium Hover",
+      "type": "EFFECT",
+      "key": "55613f4c4cfccfe501393a8de04a3c3f282da307"
+    },
+    {
+      "id": "S:b05483ed193a45aad76cb7923bb9eb06e117ec17,",
+      "name": "Shadow/Popup",
+      "type": "EFFECT",
+      "key": "b05483ed193a45aad76cb7923bb9eb06e117ec17"
+    },
+    {
+      "id": "S:699e6a1a15fefac13573ec581baf2d43b1dc45a4,",
+      "name": ".Blur/Glass",
+      "type": "EFFECT",
+      "key": "699e6a1a15fefac13573ec581baf2d43b1dc45a4"
+    }
+  ]
+}

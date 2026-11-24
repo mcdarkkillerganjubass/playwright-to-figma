@@ -1,0 +1,500 @@
+{
+  "fileKey": "Uk889X4h9hvbPD0J75fTaw",
+  "library": "TUI Desktop",
+  "styles": [
+    {
+      "id": "S:3f44fcb5ea7a6294e8d0c366e2c26cd642869820,",
+      "name": "Desktop/Heading 1",
+      "type": "TEXT",
+      "key": "3f44fcb5ea7a6294e8d0c366e2c26cd642869820",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Bold"
+      },
+      "fontSize": 50,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 56
+      }
+    },
+    {
+      "id": "S:ebc438e8827bd19e2e6dc0abf3af9fc338eeda3f,",
+      "name": "Desktop/Heading 2",
+      "type": "TEXT",
+      "key": "ebc438e8827bd19e2e6dc0abf3af9fc338eeda3f",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Bold"
+      },
+      "fontSize": 44,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 48
+      }
+    },
+    {
+      "id": "S:f6b06f0998980df49622d0608452086d264430bb,",
+      "name": "Desktop/Heading 3",
+      "type": "TEXT",
+      "key": "f6b06f0998980df49622d0608452086d264430bb",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 36,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 40
+      }
+    },
+    {
+      "id": "S:d91b2acbd35ceabd0e4e74d4c724c62b8a31b28d,",
+      "name": "Desktop/Heading 4",
+      "type": "TEXT",
+      "key": "d91b2acbd35ceabd0e4e74d4c724c62b8a31b28d",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 28,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 32
+      }
+    },
+    {
+      "id": "S:731c40cbcddf2a9a6fa7d4c0bd64d6e989300330,",
+      "name": "Desktop/Heading 5",
+      "type": "TEXT",
+      "key": "731c40cbcddf2a9a6fa7d4c0bd64d6e989300330",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 24,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      }
+    },
+    {
+      "id": "S:419c24e3fe8ba4452ce7530d618586d9cbecfd74,",
+      "name": "Desktop/Heading 6",
+      "type": "TEXT",
+      "key": "419c24e3fe8ba4452ce7530d618586d9cbecfd74",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:52dee5961cbdfa0c50a71cb8ddc5199be2abc071,",
+      "name": "Desktop/Body XL Bold",
+      "type": "TEXT",
+      "key": "52dee5961cbdfa0c50a71cb8ddc5199be2abc071",
+      "fontSize": 19,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      }
+    },
+    {
+      "id": "S:267095361c2d28c3c95ae282ddde0886e78b4bc3,",
+      "name": "Desktop/Body XL",
+      "type": "TEXT",
+      "key": "267095361c2d28c3c95ae282ddde0886e78b4bc3",
+      "fontSize": 19,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      }
+    },
+    {
+      "id": "S:1e2a31e73fddbb8f6b9d3ceaa283f71ce80b3246,",
+      "name": "Desktop/Body L Bold",
+      "type": "TEXT",
+      "key": "1e2a31e73fddbb8f6b9d3ceaa283f71ce80b3246",
+      "fontSize": 17,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      }
+    },
+    {
+      "id": "S:e11ee86bc3938498e5f43e30132495587a866257,",
+      "name": "Desktop/Body L",
+      "type": "TEXT",
+      "key": "e11ee86bc3938498e5f43e30132495587a866257",
+      "fontSize": 17,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 28
+      }
+    },
+    {
+      "id": "S:ffafd8d0f26e9884722d6dc7dedee260caec1532,",
+      "name": "Desktop/Body M Bold",
+      "type": "TEXT",
+      "key": "ffafd8d0f26e9884722d6dc7dedee260caec1532",
+      "fontSize": 15,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:a14170cdcdcd9d716632b7be8a8482bbe1ad9ee2,",
+      "name": "Desktop/Body M",
+      "type": "TEXT",
+      "key": "a14170cdcdcd9d716632b7be8a8482bbe1ad9ee2",
+      "fontSize": 15,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:9f099f825e55edf071f4b66e5d6e20d3f7aa4789,",
+      "name": "Desktop/Body S Bold",
+      "type": "TEXT",
+      "key": "9f099f825e55edf071f4b66e5d6e20d3f7aa4789",
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:3c99072a74ba28d7414c9d70de4ff672a3fa738e,",
+      "name": "Desktop/Body S",
+      "type": "TEXT",
+      "key": "3c99072a74ba28d7414c9d70de4ff672a3fa738e",
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:42f3b320eafd0179a0c7e385cb482ff4d0564b82,",
+      "name": "Desktop/Body XS",
+      "type": "TEXT",
+      "key": "42f3b320eafd0179a0c7e385cb482ff4d0564b82",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:ba29dceb8d842883730f2105f23689ef1fe4fdb7,",
+      "name": "Desktop/Body XXS Bold",
+      "type": "TEXT",
+      "key": "ba29dceb8d842883730f2105f23689ef1fe4fdb7",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Bold"
+      },
+      "fontSize": 9,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:5b660dfcdb8d502f7ff982c32ed7a8c46fc2e748,",
+      "name": "Desktop/Body XXS",
+      "type": "TEXT",
+      "key": "5b660dfcdb8d502f7ff982c32ed7a8c46fc2e748",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 9,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:c9b4ab9178e46d1abe72b1237bdb73921146c9cc,",
+      "name": "Desktop/UI L",
+      "type": "TEXT",
+      "key": "c9b4ab9178e46d1abe72b1237bdb73921146c9cc",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 17,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:6854b464f806a2a97db61850e1f811422ab5de34,",
+      "name": "Desktop/UI L Bold",
+      "type": "TEXT",
+      "key": "6854b464f806a2a97db61850e1f811422ab5de34",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Medium"
+      },
+      "fontSize": 17,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:345086a993d06924f99617d5fb51c34199fae8ff,",
+      "name": "Desktop/UI M",
+      "type": "TEXT",
+      "key": "345086a993d06924f99617d5fb51c34199fae8ff",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 15,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:1c2bb6f7745e79d849e44a28506ec9bc2fbaca63,",
+      "name": "Desktop/UI M Bold",
+      "type": "TEXT",
+      "key": "1c2bb6f7745e79d849e44a28506ec9bc2fbaca63",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Medium"
+      },
+      "fontSize": 15,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:18a24959d1e97b7e73a9fd67659f27873fcb5ba2,",
+      "name": "Desktop/UI S",
+      "type": "TEXT",
+      "key": "18a24959d1e97b7e73a9fd67659f27873fcb5ba2",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:7506b3e7841e6c2efe25d3697fbc20323e04f613,",
+      "name": "Desktop/UI S Bold",
+      "type": "TEXT",
+      "key": "7506b3e7841e6c2efe25d3697fbc20323e04f613",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Medium"
+      },
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:470fba22ad7a8e997d69c5b364c25cc9cd07b6a8,",
+      "name": "Desktop/UI XS",
+      "type": "TEXT",
+      "key": "470fba22ad7a8e997d69c5b364c25cc9cd07b6a8",
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 13
+      }
+    },
+    {
+      "id": "S:6144bd0c813ea394681d8ae5ef2b2907402a64a5,",
+      "name": "Desktop/UI XS Bold",
+      "type": "TEXT",
+      "key": "6144bd0c813ea394681d8ae5ef2b2907402a64a5",
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 13
+      }
+    },
+    {
+      "id": "S:2d54b71e9bf2093b4dc318c111673521c9e30760,",
+      "name": "Desktop/UI XXS Bold",
+      "type": "TEXT",
+      "key": "2d54b71e9bf2093b4dc318c111673521c9e30760",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Bold"
+      },
+      "fontSize": 9,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 13
+      }
+    },
+    {
+      "id": "S:ba752a5c64f7e69521499ce023b941fe300c50db,",
+      "name": "Desktop/UI XXS",
+      "type": "TEXT",
+      "key": "ba752a5c64f7e69521499ce023b941fe300c50db",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 9,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 13
+      }
+    },
+    {
+      "id": "S:6fee3e531a70a0f8e2fc67899b85d1da88342e02,",
+      "name": "Desktop/UI Caps L Bold",
+      "type": "TEXT",
+      "key": "6fee3e531a70a0f8e2fc67899b85d1da88342e02",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Medium"
+      },
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:1047efe2c3a0f8db3c2fa8e6db3482db14f09022,",
+      "name": "Desktop/UI Caps L",
+      "type": "TEXT",
+      "key": "1047efe2c3a0f8db3c2fa8e6db3482db14f09022",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 13,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 20
+      }
+    },
+    {
+      "id": "S:3d003651083019b8ba59044a33972bf7f4589a80,",
+      "name": "Desktop/UI Caps S Bold",
+      "type": "TEXT",
+      "key": "3d003651083019b8ba59044a33972bf7f4589a80",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Medium"
+      },
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:f86122a38db76cbde78ab3e8b9fa45a6ad7aea44,",
+      "name": "Desktop/UI Caps S",
+      "type": "TEXT",
+      "key": "f86122a38db76cbde78ab3e8b9fa45a6ad7aea44",
+      "fontName": {
+        "family": "Neue Haas Unica W1G",
+        "style": "Regular"
+      },
+      "fontSize": 11,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 16
+      }
+    },
+    {
+      "id": "S:392bb567937762a93e3d813e237f237bdaec192c,",
+      "name": "Desktop/Numbers 2XL",
+      "type": "TEXT",
+      "key": "392bb567937762a93e3d813e237f237bdaec192c",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 56,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 64
+      }
+    },
+    {
+      "id": "S:8d97d7ef22b8e91e8e8f4802af93b8c490aae6be,",
+      "name": "Desktop/Numbers XL",
+      "type": "TEXT",
+      "key": "8d97d7ef22b8e91e8e8f4802af93b8c490aae6be",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 36,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 40
+      }
+    },
+    {
+      "id": "S:77138b96b9877e9c939b04479264d59b8419933b,",
+      "name": "Desktop/Numbers M",
+      "type": "TEXT",
+      "key": "77138b96b9877e9c939b04479264d59b8419933b",
+      "fontName": {
+        "family": "T-Sans",
+        "style": "Medium"
+      },
+      "fontSize": 20,
+      "lineHeight": {
+        "unit": "PIXELS",
+        "value": 24
+      }
+    },
+    {
+      "id": "S:2c6870228fc99f834fe33a3f409608c2351d2ac7,",
+      "name": "[Deprecated]/shadow-popup",
+      "type": "EFFECT",
+      "key": "2c6870228fc99f834fe33a3f409608c2351d2ac7"
+    },
+    {
+      "id": "S:9598709ce5fdf34d30008b2eac9dd38bbad13de1,",
+      "name": "mobile",
+      "type": "GRID",
+      "key": "9598709ce5fdf34d30008b2eac9dd38bbad13de1"
+    },
+    {
+      "id": "S:0890bfb11c5e25313ba3babcbfaa3e65215fc782,",
+      "name": "desktop-small",
+      "type": "GRID",
+      "key": "0890bfb11c5e25313ba3babcbfaa3e65215fc782"
+    },
+    {
+      "id": "S:971230c85bddd42830c22ab987b18be5db80c707,",
+      "name": "desktop-medium",
+      "type": "GRID",
+      "key": "971230c85bddd42830c22ab987b18be5db80c707"
+    }
+  ]
+}

@@ -19,6 +19,7 @@ export async function captureDesign(observations: CaptureObservations | void = u
         source?: {path: string; pseudo?: string; backendNodeId?: number; paintOrder?: number};
         svg?: string;
         effects?: {type: 'DROP_SHADOW' | 'INNER_SHADOW'; color: Color; offset: {x: number; y: number}; radius: number; spread: number; visible: boolean; blendMode: 'NORMAL'}[];
+        semantic?: {component?: string; props?: Record<string, string>; icon?: string; textStyle?: string; tokens?: Record<string, string>};
     };
     const measuredNodes = observations || {};
     const layers: Layer[] = [];
@@ -26,6 +27,24 @@ export async function captureDesign(observations: CaptureObservations | void = u
     const unstableKeys: string[] = [];
     const keys = new Set<string>();
     const svgJobs: Promise<void>[] = [];
+    function semantic(element: Element): Layer['semantic'] | undefined {
+        const component = element.getAttribute('data-figma-component') || element.getAttribute('data-tui-component');
+        const icon = element.getAttribute('data-figma-icon') || element.getAttribute('data-tui-icon');
+        const textStyle = element.getAttribute('data-figma-text-style') || element.getAttribute('data-tui-text-style');
+        const props: Record<string, string> = {};
+        for (const attribute of Array.from(element.attributes)) {
+            if (attribute.name.startsWith('data-figma-prop-')) props[attribute.name.slice('data-figma-prop-'.length)] = attribute.value;
+            if (attribute.name.startsWith('data-tui-prop-')) props[attribute.name.slice('data-tui-prop-'.length)] = attribute.value;
+        }
+        const tokens: Record<string, string> = {};
+        for (const attribute of Array.from(element.attributes)) {
+            if (attribute.name.startsWith('data-figma-token-')) tokens[attribute.name.slice('data-figma-token-'.length)] = attribute.value;
+            if (attribute.name.startsWith('data-tui-token-')) tokens[attribute.name.slice('data-tui-token-'.length)] = attribute.value;
+        }
+        if (!component && !icon && !textStyle && !Object.keys(props).length && !Object.keys(tokens).length) return undefined;
+        return {component: component || undefined, props: Object.keys(props).length ? props : undefined,
+            icon: icon || undefined, textStyle: textStyle || undefined, tokens: Object.keys(tokens).length ? tokens : undefined};
+    }
     function sourcePath(element: Element): string {
         const indices: number[] = [];
         for (let e = element; e.parentElement; e = e.parentElement) indices.unshift(Array.from(e.parentElement.children).indexOf(e));
@@ -175,7 +194,7 @@ export async function captureDesign(observations: CaptureObservations | void = u
                     const width = parseFloat(s.getPropertyValue(`border-${side.toLowerCase()}-width`));
                     const c = color(s.getPropertyValue(`border-${side.toLowerCase()}-color`));
                     return width && c && c.a ? [{side: side.toLowerCase(), width, color: c}] : [];
-                })};
+                }), semantic: semantic(element)};
             if (element instanceof SVGSVGElement) {
                 const clone = element.cloneNode(true) as SVGSVGElement;
                 const originals = [element, ...element.querySelectorAll('*')];

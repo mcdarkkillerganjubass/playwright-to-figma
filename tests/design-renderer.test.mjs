@@ -131,3 +131,19 @@ test('SVG viewport resizing preserves node identity and refuses changed assets',
     assert.equal(node.width,16);assert.equal(node.height,16);assert.equal(node.x,12);assert.equal(node.y,14);
     await assert.rejects(render(rt,capture({...nextIcon,svg:nextIcon.svg.replace('h16','h8')}),{previous:next}),/SVG asset migration/);
 });
+
+test('design-system bindings degrade to native values when the builder lacks DS APIs', async () => {
+    const rt = runtime();
+    const first = await render(rt, capture({...label, semantic: {component: 'tuiButton', tokens: {color: '--tui-text-primary'}, textStyle: '--tui-typography-body-m'}}), {
+        mapping: {profileId: 'test', layers: {title: {
+            component: {key: 'a'.repeat(40), props: {}},
+            tokens: {color: {key: 'b'.repeat(40)}},
+            textStyle: {key: 'c'.repeat(40)},
+        }}, warnings: []},
+    });
+    assert.equal(first.designSystem.instances, 0);
+    assert.equal(first.designSystem.nativeFallbacks, 1);
+    assert.ok(first.warnings.some(message => message.includes('instance support')));
+    assert.ok(first.warnings.some(message => message.includes('text style binding')));
+    assert.ok(first.warnings.some(message => message.includes('token color binding')));
+});

@@ -1,5 +1,5 @@
 /** Run inside use_figma with its $fig builder and figma globals supplied explicitly. */
-export async function renderDesign({builder, figma, design, containerId, previous = null, fontMap = {}, fallbackFamily = 'Inter', verifiedKeys = [], strict = true}) {
+export async function renderDesign({builder, figma, design, containerId, previous = null, fontMap = {}, fallbackFamily = 'Inter', verifiedKeys = [], strict = true, mapping = null}) {
     if (!((design?.version === 1 && design.converter === 'native-v1') || (design?.version === 2 && design.converter === 'native-v2')) || !Array.isArray(design.layers) || !design.layers.length) {
         throw new Error('Expected a supported native design capture');
     }
@@ -8,6 +8,14 @@ export async function renderDesign({builder, figma, design, containerId, previou
     if (!container || !['FRAME', 'SECTION'].includes(container.type)) throw new Error('Expected an existing trial frame or section');
     if (previous && (previous.containerId !== containerId || previous.converter !== design.converter)) throw new Error('Publication target or converter changed');
     const specs = new Map(), plans = new Map(), live = new Map(), fingerprints = new Map(), fonts = new Map(), svgResizes = new Map();
+    const resolvedMappings = new Map(Object.entries(mapping?.layers || {}).filter(([, value]) => value?.component?.key));
+    const layerMappings = new Map(Object.entries(mapping?.layers || {}));
+    const mappedChildren = new Set();
+    for (const [key] of resolvedMappings) {
+        for (let parent = design.layers.find(layer => layer.key === key)?.parent; parent; parent = design.layers.find(layer => layer.key === parent)?.parent) {
+            if (resolvedMappings.has(parent)) mappedChildren.add(key);
+        }
+    }
     const old = previous?.layers || {};
     if (!previous && container.children.length) throw new Error('First import requires an empty container');
     if (previous && !old.$viewport) throw new Error('Saved mapping is missing its viewport root');
@@ -83,7 +91,7 @@ export async function renderDesign({builder, figma, design, containerId, previou
         if (actualIds.has(entry.id)) throw new Error('Duplicate mapped node ID');
         actualIds.add(entry.id);
         const node = await figma.getNodeByIdAsync(entry.id);
-        const expected = entry.kind === 'text' ? 'TEXT' : 'FRAME';
+        const expected = entry.kind === 'text' ? 'TEXT' : entry.kind === 'instance' ? 'INSTANCE' : 'FRAME';
         if (!node || node.type !== expected || node.parent?.id !== (entry.parent === null ? containerId : old[entry.parent]?.id)) {
             throw new Error(`Missing, moved or incompatible mapped node: ${key}`);
         }
@@ -107,11 +115,45 @@ export async function renderDesign({builder, figma, design, containerId, previou
     }
     if (removed.some(key => (live.get(key).children || []).some(child => !actualIds.has(child.id)))) throw new Error('Refusing to delete a node containing unmapped content');
     const result = {containerId, converter: design.converter, layers: {}, writes: changed.length + removed.length,
-        warnings: [...(design.warnings || [])], fontSubstitutions: [...Object.entries(fontMap), ...substitutions]};
+        warnings: [...(design.warnings || []), ...(mapping?.warnings || [])], fontSubstitutions: [...Object.entries(fontMap), ...substitutions],
+        designSystem: {profileId: mapping?.profileId || null, instances: 0, nativeFallbacks: 0}};
     if (!result.writes) return {...previous, writes: 0};
     // Fonts are preflighted before any node writes, including when updating existing text.
     await Promise.all([...fonts.values()].map(font => figma.loadFontAsync(font)));
+    const assetHandle = (asset, kind) => {
+        if (!asset?.key) return null;
+        const getter = kind === 'variable' ? builder.getVar : builder.getStyle;
+        return typeof getter === 'function' ? getter.call(builder, asset.key) : null;
+    };
+    const applyDesignSystemProperties = (layer, props) => {
+        const resolved = layerMappings.get(layer.key);
+        if (!resolved) return;
+        if (resolved.textStyle) {
+            const style = assetHandle(resolved.textStyle, 'style');
+            if (style) props.textStyle = style;
+            else result.warnings.push(`${layer.key}: text style binding unavailable; literal typography used`);
+        }
+        for (const [property, asset] of Object.entries(resolved.tokens || {})) {
+            const variable = assetHandle(asset, 'variable');
+            if (!variable) {
+                result.warnings.push(`${layer.key}: token ${property} binding unavailable; literal value used`);
+                continue;
+            }
+            if (property === 'fills' || property === 'fill' || property === 'color') {
+                props.fills = [{type: 'SOLID', color: variable}];
+            } else if (property === 'strokes' || property === 'stroke') {
+                props.strokes = [{type: 'SOLID', color: variable}];
+            } else if (property === 'cornerRadius' || property === 'radius') {
+                props.cornerRadius = variable;
+            } else if (property === 'opacity') {
+                props.opacity = variable;
+            } else {
+                result.warnings.push(`${layer.key}: unsupported token property ${property}; literal value used`);
+            }
+        }
+    };
     for (const n of design.layers) {
+        if (mappedChildren.has(n.key)) continue;
         const parent = n.parent === null ? {x: 0, y: 0} : specs.get(n.parent);
         const props = {name: n.name, x: n.x - parent.x, y: n.y - parent.y, width: n.width, height: n.height, opacity: n.opacity};
         if (n.kind === 'frame') {
@@ -138,8 +180,18 @@ export async function renderDesign({builder, figma, design, containerId, previou
                 letterSpacing: {unit: 'PIXELS', value: n.typography?.letterSpacing || 0},
                 textDecoration: n.typography?.decoration || 'NONE', textAlignHorizontal: n.typography?.align || 'LEFT', textAlignVertical: 'CENTER'});
         }
+        applyDesignSystemProperties(n, props);
         const existing = old[n.key];
-        const plan = existing ? builder.get(existing.id) : n.kind === 'text' ? builder.text(props) : n.kind === 'svg' ? builder.svg(n.svg, props) : builder.frame(props);
+        const asset = resolvedMappings.get(n.key)?.component;
+        const canInstance = !!asset && typeof builder.instance === 'function';
+        const plan = existing ? builder.get(existing.id) : canInstance ? builder.instance(asset.key, {props: asset.props || {}, name: n.name}) : n.kind === 'text' ? builder.text(props) : n.kind === 'svg' ? builder.svg(n.svg, props) : builder.frame(props);
+        if (canInstance) {
+            plan.set(props);
+            result.designSystem.instances++;
+        } else if (asset) {
+            result.designSystem.nativeFallbacks++;
+            result.warnings.push(`${n.key}: Figma component mapping was resolved but builder has no instance support; native fallback used`);
+        }
         if (existing && fingerprints.get(n.key) !== existing.fingerprint && !svgResizes.has(n.key)) plan.set(props);
         plans.set(n.key, plan);
         if (!existing) (n.parent === null ? builder.get(containerId) : plans.get(n.parent)).append(plan);
@@ -169,7 +221,8 @@ export async function renderDesign({builder, figma, design, containerId, previou
     }
     if (svgResizes.size) await builder.done();
     for (const n of design.layers) {
-        result.layers[n.key] = {id: plans.get(n.key).node.id, kind: n.kind, parent: n.parent, order: orders.get(n.key), fingerprint: fingerprints.get(n.key)};
+        if (!plans.has(n.key)) continue;
+        result.layers[n.key] = {id: plans.get(n.key).node.id, kind: resolvedMappings.has(n.key) && !mappedChildren.has(n.key) && typeof builder.instance === 'function' ? 'instance' : n.kind, parent: n.parent, order: orders.get(n.key), fingerprint: fingerprints.get(n.key)};
     }
     return result;
 }

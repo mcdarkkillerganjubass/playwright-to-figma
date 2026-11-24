@@ -1,0 +1,814 @@
+{
+  "fileKey": "Uk889X4h9hvbPD0J75fTaw",
+  "library": "TUI Desktop",
+  "variables": [
+    {
+      "id": "VariableID:2934:32956",
+      "name": "radius",
+      "key": "5147905fedbcb5ee7172097afdb447fdaed22afa",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:2934:32955",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2934:32957",
+      "name": "padding",
+      "key": "3cdd8c475c9af87b02d6f8738c3730307dcbb77e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:2934:32955",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2934:32958",
+      "name": "padding-compensated",
+      "key": "24d97488d947eba2428ecbdc59fb361d6e1baff9",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:2934:32955",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:2934:32959",
+      "name": "gap",
+      "key": "e317f28d58a7f815fd87b25eb8ed15a11234125b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:2934:32955",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3729:44857",
+      "name": "medium/radius",
+      "key": "2aa1b1928c1f5028c518ad2b741ffa25bc65328d",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3729:44856",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3729:44858",
+      "name": "small/radius",
+      "key": "e014ddfc3ec8e27e7ac52e21f09a682673e6aa97",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3729:44856",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3729:44859",
+      "name": "x-small/radius",
+      "key": "44013618372cbdcca37794aae6c66468cef35ed7",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3729:44856",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3729:44860",
+      "name": "xx-small/radius",
+      "key": "802d35d69a283f93eb413497d65f932dd76f50d9",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3729:44856",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3861:34540",
+      "name": "item-padding/large",
+      "key": "52b2e488b83325069145944569b80c3b996adab7",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3862:34533",
+      "name": "item-padding/medium",
+      "key": "c945cf95aafdcdad76ebf2b3b61e4025991fb58f",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3862:34534",
+      "name": "item-padding/small",
+      "key": "6da52733444733683b8cff9c4b101cac61550d46",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3862:34538",
+      "name": "radius/large",
+      "key": "38294878b380156f89bfc1d33b2bee0d9afeb0b7",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3862:34539",
+      "name": "radius/medium",
+      "key": "6cb33172c118ad9eb4796c2fcb1b68d7955b7565",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3862:34540",
+      "name": "radius/small",
+      "key": "7e92a9c15db5cb33390af3248869f74ea2c8cd58",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3861:34539",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34534",
+      "name": "min-height/cell-large",
+      "key": "4d15cd806eb6afd02075e5d45ecda67248c32feb",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34535",
+      "name": "min-height/cell-medium",
+      "key": "6ac76674acf974cf81b82a5bdf809b6d450fa5ce",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34536",
+      "name": "min-height/cell-small",
+      "key": "d2da8603629cb3e2d461ac94053d976711f226ea",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34540",
+      "name": "text-padding/cell-large",
+      "key": "9c6376ca69507febcdbddf65bd324a94b97c92ed",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34541",
+      "name": "text-padding/cell-medium",
+      "key": "9fc40dd86a1e6df9e23148dfb04e0e4573bb8f7f",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3870:34542",
+      "name": "text-padding/cell-small",
+      "key": "d5015d115845b2dbc965fd92ebbc538c5fc41070",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3945:53410",
+      "name": "radius",
+      "key": "ca21d9486ec30a6af5c1492d178a72c01f70fec1",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3945:53411",
+      "name": "padding",
+      "key": "fd7178ee684e1069fee72eba8847cc59c7aa94b1",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3945:53412",
+      "name": "padding-compensated",
+      "key": "5d1ad8f04c35d7c44a06f996b503f01c8f205277",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3980:42979",
+      "name": "padding-reduced",
+      "key": "3ba730ac8bd9ada379bcb47667496f45de7d13ba",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:3980:42980",
+      "name": "radius-inner",
+      "key": "08ed476d6d2905d30f9b363a806455e962da1f7f",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:4102:38180",
+      "name": "gap",
+      "key": "3c1c052dadf6d5d0a036eb56549d55a74db90b45",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:4106:38926",
+      "name": "text-compensation",
+      "key": "8a8faa25b2d5feab3e1bf2b9b340fcf36052264f",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3945:53409",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10197:53280",
+      "name": "large/radius",
+      "key": "12b556b80a60249e7a05a90a4c70b21cbeb9093d",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10197:53309",
+      "name": "large/gap",
+      "key": "761088667fd4f29e109a14ff4feb232c04464acc",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10203:45768",
+      "name": "medium/radius",
+      "key": "d2b5c4634b23dc8aa7fabe6aad93a15b7e464abb",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10203:45769",
+      "name": "medium/gap",
+      "key": "23a93570fa5dbecf34620c66aa6db9081d426bed",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10203:45770",
+      "name": "large/padding",
+      "key": "d94a09d9bad1475846ed3722c2952b63e9dabdb8",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10203:45771",
+      "name": "medium/padding",
+      "key": "340bcf688877ae2d0661772051302535affdf741",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10208:48236",
+      "name": "small/radius",
+      "key": "08f25f74629d5669169d4ccd595193488462bebc",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10208:48237",
+      "name": "small/gap",
+      "key": "81c067806c1f02b43615f70b7ea51b55d8499b66",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10208:48238",
+      "name": "small/padding",
+      "key": "c5ecd2bcc3a621122bb9233083858697e903fffe",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10230:49920",
+      "name": "large/item-radius",
+      "key": "b39059324212c302214b02cbd48a47003a732323",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10230:50211",
+      "name": "medium/item-radius",
+      "key": "5e98b4f1a983cbafa78f81c2cb149e13e8f90bbe",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:10230:50212",
+      "name": "small/item-radius",
+      "key": "1f957d3336cf46c885c87509c1132d0195a48142",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:10197:53279",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14027:60089",
+      "name": "min-height/cell-large",
+      "key": "cc6d9d643babff4803ddaec892d54496cb12ee4e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14027:60088",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22585",
+      "name": "item-padding/large",
+      "key": "07a2d3320a55d5bbb60c3681ad301e3242bdef12",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22586",
+      "name": "item-padding/medium",
+      "key": "e5db3e772ec632b515994f6a208538ea6cac0a1b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22587",
+      "name": "item-padding/small",
+      "key": "30da6da374a8775d3130ed9862a24c65c5e76288",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22588",
+      "name": "radius/medium",
+      "key": "3d4265e0c0035fb9925d94f4fa3211ece2cb1a75",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22589",
+      "name": "min-height/cell-medium",
+      "key": "e05a8fdc520287bbb00411ba257bb2f50f99d44b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14027:60088",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22590",
+      "name": "radius/large",
+      "key": "de2d413a8568e1fc3d7a946fb78e511ce4cad68f",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22591",
+      "name": "min-height/cell-small",
+      "key": "19b88612efc545a01d33034b7658db931b612f51",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14027:60088",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14036:22592",
+      "name": "radius/small",
+      "key": "32c6f5837606da4faee3e6bbf609e56b26659efc",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14036:22584",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14291:6293",
+      "name": "padding-compensation/cell-list",
+      "key": "630129a6f194ce85e057769732bf34c69b249263",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14322:54646",
+      "name": "padding-compensation/none",
+      "key": "77f1092b155f9f45ea9d72fdee1072620af91502",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42403",
+      "name": "horizontal/top",
+      "key": "3d38a577dea6dcb4cd53c54e336d3f5a87db8e32",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42404",
+      "name": "horizontal/right",
+      "key": "33323b3869ef8f6b0e1b994a8fecaef44c8c767b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42405",
+      "name": "horizontal/bottom",
+      "key": "3023699990b4119c4de20c5971e0e972810ff662",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42406",
+      "name": "horizontal/left",
+      "key": "93a78af0d00e34169ad11ca25875baa3896a14a0",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42407",
+      "name": "vertical/top",
+      "key": "ad695c442ee04bcc9635a28f65ace4d5e9adaf34",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42408",
+      "name": "vertical/right",
+      "key": "9cd8d9a5055bc8d6c06a3b2d0db5549b84ffec03",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42409",
+      "name": "vertical/bottom",
+      "key": "30b698026f98d87f4ae562d310192d16eb2f4d9c",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:14627:42410",
+      "name": "vertical/left",
+      "key": "54884cb5b945c3cfa2daf741b34b5628b2d896e3",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14627:42397",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:17984:49204",
+      "name": "container-gap",
+      "key": "962e218b82c7300b8f1295641cf56938beeb4a3b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:17984:49205",
+      "name": "container-padding-top",
+      "key": "0010fbcf0fd575af496f74a7dd2bce84c2a61c12",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:17984:49206",
+      "name": "footer-padding-bottom",
+      "key": "d7b572bc13e3178fcf5925714574b8f4aebfc176",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:17984:49207",
+      "name": "footer-padding-top",
+      "key": "490d3d66e4ddeb35dbfa55d8666146d227020ccf",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:14291:6292",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:34737:50996",
+      "name": "padding",
+      "key": "a035fc07f832fc0fdf1973bc41c500dbec78167b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:34737:50995",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:34737:50997",
+      "name": "padding-bottom",
+      "key": "debb606a44b24ccd4e4bb579c791d10cf8648126",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:34737:50995",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:34737:50998",
+      "name": "radius",
+      "key": "6ae517f1fd72bbdb9ae0b9f96659a8f77ae8cd5d",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:34737:50995",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:34737:50999",
+      "name": "min-height",
+      "key": "3549e423bb62aad6ffe8fc4ffaed3aae59e94014",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:34737:50995",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:35528:51404",
+      "name": "tui-button/radius/large",
+      "key": "475479e433715e8cf9f377f8542228f512782ea4",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:35528:51408",
+      "name": "tui-button/radius/medium",
+      "key": "c9e5f3a85eacba30df84125937e93a44db2d1641",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:35528:51412",
+      "name": "tui-button/radius/small",
+      "key": "899bda03451ad1727e3514a040dcbc9965fb7b10",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:35528:51416",
+      "name": "tui-button/radius/xsmall",
+      "key": "acd6182a5ef3a1dba6e4f413a44b51047b15273e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:44020:51419",
+      "name": "tui-avatar/radius/xx-large",
+      "key": "1a94ffb1836e9c0b6a38d50432351c5f7b43a5b2",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:44020:51420",
+      "name": "tui-avatar/badged-content-offset/xx-large",
+      "key": "d0250ad4f84d1dd94ff4b304fc37b6e5ef8a4d6a",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:44020:51421",
+      "name": "tui-chip/radius/large",
+      "key": "63d448aed1b40fcc9bfa6a91b575d22fd3d5b4b4",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:35528:51403",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:65347:57705",
+      "name": "large",
+      "key": "540809230ece41fc0f0f13dd80a0f905a6570eb9",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:65347:57704",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:65347:57706",
+      "name": "medium",
+      "key": "c5dc3b52a6f154c1b42c76057f7807272c7744cc",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:65347:57704",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:65347:57707",
+      "name": "small",
+      "key": "29f9244abfc1ef9d85a4952488a35bebfc2f8ba3",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:65347:57704",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:65347:57709",
+      "name": "left-padding",
+      "key": "456cb8e0c40cfa450d6f0a4784db9809f70d2c57",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:65347:57708",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:78268:33375",
+      "name": "temp",
+      "key": "c80de9f2ab84cfda3956ec650691c00397212cac",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:78268:33374",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:78277:34885",
+      "name": "temp2",
+      "key": "c22bc82ec2f85e6a51956a8810cb67bfb416314e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:78268:33374",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39722",
+      "name": "Month/bg-color-middle",
+      "key": "fff92fd2349ba2613edc14fa9c5bcddc6a92bc92",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39723",
+      "name": "Month/radius-left",
+      "key": "6cce3f58f22ea1c56476694b86b4b6bc242d75d1",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39724",
+      "name": "Month/radius-right",
+      "key": "89a9d22036a7511e703b3efd26f9393cdaf5ce70",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39725",
+      "name": "Day/radius-round-left",
+      "key": "c7486772da10f92b0c4a3a9532621390f9df465b",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39726",
+      "name": "Day/radius-round-left 2",
+      "key": "3355b09d0a3530dda8ac36c461510343c74e636e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39727",
+      "name": "Day/radius-round-right",
+      "key": "edab8a0013340a26fc688bfe807bca0e1f561953",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39728",
+      "name": "Day/radius-square-left",
+      "key": "9a366218f6e80f32351620f4071162af2e4ba09e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39729",
+      "name": "Day/radius-square-right",
+      "key": "29c2cdf6df43acc86b7d86c6a7fb179a64ac1f06",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39753",
+      "name": "Month/bg-color-left",
+      "key": "c0b776458bebe70a28f845b32464193bd5278aa0",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104386:39757",
+      "name": "Month/bg-color-right",
+      "key": "2328b032844e4851b523a7f819472be2388a13f5",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104394:40064",
+      "name": "Day/bg-color-right",
+      "key": "b8176feb2d8812f8aef7d57eec0670e866444e3a",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104394:40065",
+      "name": "Day/bg-color-middle",
+      "key": "0db913495548cf7f3603cca1020d0e68bef14b2a",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104394:40066",
+      "name": "Day/bg-color-left",
+      "key": "fd47ead1a073e29229b1fb9b7159a36b591e4948",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104386:39721",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:104410:40411",
+      "name": "Clear",
+      "key": "85a4e89e4d710920144839b0a0e0544837e4b755",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:104410:40410",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:2",
+      "name": "accessory-padding/cell-large",
+      "key": "47e80983a06e91e5d3d0d60b9e920131aa0dc1e5",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:3",
+      "name": "accessory-padding/cell-medium",
+      "key": "a62fefefbe23870454f23b2fab6421207491b228",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:4",
+      "name": "accessory-padding/cell-small",
+      "key": "976964d82631b30648a1a0697c1d8001990e02ac",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:5",
+      "name": "accessory-min-heigh/cell-large",
+      "key": "a7b75605fe48b1056e17c84f39baf84d6adfdd64",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:6",
+      "name": "accessory-min-heigh/cell-medium",
+      "key": "cd0149b0a7d101bc81b4edc50c1d0665b89afa57",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106763:7",
+      "name": "accessory-min-heigh/cell-small",
+      "key": "544308bb4c902beb39898448b65da559d900e98e",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:3870:34533",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106828:36034",
+      "name": "background",
+      "key": "8b106cf1d6dedbeba49c4eaa05a15934f8333622",
+      "type": "COLOR",
+      "collectionId": "VariableCollectionId:106828:35945",
+      "codeSyntax": {}
+    },
+    {
+      "id": "VariableID:106828:36038",
+      "name": "opacity",
+      "key": "f814c2aaf2fe26c184e979c757b9a08bdc1f81aa",
+      "type": "FLOAT",
+      "collectionId": "VariableCollectionId:106828:35945",
+      "codeSyntax": {}
+    }
+  ]
+}

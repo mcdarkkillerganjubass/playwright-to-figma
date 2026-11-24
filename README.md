@@ -2,11 +2,13 @@
 
 Reusable agent skill for publishing authored Playwright scenarios as editable screenshot flow maps in regular Figma Design.
 
-Experimental **editable screen contents** are available through the skill: opt-in Playwright DOM/style capture plus a deterministic native-layer renderer executed through the connected Figma integration. See [native design workflow](references/native-design.md). Auto Layout inference and design-system mapping are deferred; inspect capture warnings and compare the rendered mockup with its PNG before accepting it.
+Experimental **editable screen contents** are available through the skill: opt-in Playwright DOM/style capture plus a deterministic native-layer renderer executed through the connected Figma integration. See [native design workflow](references/native-design.md). An isolated design-system mapping catalog is available; Angular semantic capture, DS-instance rendering and Auto Layout inference are not yet connected. Inspect capture warnings and compare the rendered mockup with its PNG before accepting it.
 
 - `SKILL.md`: agent workflow, project-specific routing and in-place refresh preserving comment anchors.
 - `assets/flow-export.ts`: reusable opt-in Playwright helper for application tests.
 - `assets/page-design.ts`, `assets/design-capture.ts`, `assets/design-renderer.mjs`: experimental browser capture and native-layer reconciliation.
+- `assets/design-system-mapping.mjs`, `profiles/`: isolated semantic mapping plans with an optional `proprietary-taiga-ui-angular` profile. See [mapping contract](references/design-system-mapping.md); host capture adapters and DS-instance rendering are not yet connected.
+- `profiles/proprietary-taiga-ui-angular-summary.md`: human-readable coverage report showing mapped assets, gaps and native-render fallback behavior.
 - `scripts/compare_render.py`: regional browser/Figma render comparison with explicit tolerances.
 - `scripts/publication.py`: export validation and bounded pixel-noise comparison with the last verified publication.
 - `references/`: export contract and publication/recovery details.
